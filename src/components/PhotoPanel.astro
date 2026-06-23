@@ -1,0 +1,24 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { event } from '../data/event.js';
+
+const photoFile = join(process.cwd(), 'public', event.couplePhoto.replace(/^\//, ''));
+const shouldShowPhoto = event.showPhotoPanel && existsSync(photoFile);
+---
+{shouldShowPhoto && (
+  <section id="memory" class="photo-panel section-pad-soft" aria-label="Couple photograph">
+    <div class="photo-shell" data-reveal>
+      <figure class="photo-frame" style={`--couple-photo: url('${event.couplePhoto}')`}>
+        <span class="sr-only">{event.couplePhotoAlt}</span>
+      </figure>
+      <div class="photo-copy">
+        <p class="eyebrow">A quiet moment</p>
+        <h2 class="section-title compact">Before the promise</h2>
+        <p>
+          A gentle pause in the invitation, placed after the formal welcome so the story becomes personal as the page unfolds.
+        </p>
+      </div>
+    </div>
+  </section>
+)}

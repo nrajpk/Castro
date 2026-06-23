@@ -1,0 +1,12 @@
+---
+import { sharing } from '../data/event.js';
+---
+<section id="sharing" class="sharing-section section-pad-soft" aria-labelledby="sharing-title">
+  <div class="narrow-shell" data-reveal>
+    <p class="eyebrow">Sharing the happiness</p>
+    <h2 id="sharing-title" class="section-title compact">With prayers and joy</h2>
+    <div class="sharing-list">
+      {sharing.map((name) => <span>{name}</span>)}
+    </div>
+  </div>
+</section>

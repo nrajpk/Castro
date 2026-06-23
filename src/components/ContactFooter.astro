@@ -1,0 +1,20 @@
+---
+import { event } from '../data/event.js';
+---
+<footer id="contact" class="contact-footer section-pad" aria-labelledby="contact-title">
+  <div class="footer-shell" data-reveal>
+    <div class="footer-seal" aria-hidden="true">
+      <span>10</span>
+      <small>Oct<br />2026</small>
+    </div>
+    <p class="eyebrow">In faith and fellowship</p>
+    <h2 id="contact-title" class="footer-title">Cera &amp; Tony</h2>
+    <p class="footer-note">We look forward to your presence and prayers.</p>
+    <div class="footer-actions">
+      <a class="button-primary" href={`tel:${event.phoneRaw}`}>Call family desk</a>
+      <button class="button-ghost" type="button" data-copy-phone={event.phoneRaw}>Copy number</button>
+    </div>
+    <p class="phone-line">{event.phoneDisplay}</p>
+    <small>Betrothal Invitation · St. Mary's Forane Church, Kanjoor</small>
+  </div>
+</footer>

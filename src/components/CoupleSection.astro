@@ -1,0 +1,20 @@
+---
+import { people } from '../data/event.js';
+---
+<section id="story" class="couple-section section-pad" aria-labelledby="couple-title">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">The grace of union</p>
+    <h2 id="couple-title" class="section-title">The happy couple</h2>
+  </div>
+
+  <div class="couple-grid">
+    {people.map((person, index) => (
+      <article class="person-panel" data-initial={person.name[0]} data-reveal data-reveal-delay={index === 1 ? '100' : '0'}>
+        <p class="script-kicker">{person.role}</p>
+        <h3>{person.name}</h3>
+        <p class="parent-line">{person.parentLine}</p>
+        <p class="person-copy">{person.copy}</p>
+      </article>
+    ))}
+  </div>
+</section>

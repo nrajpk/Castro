@@ -1,0 +1,17 @@
+---
+import { event } from '../data/event.js';
+---
+<section id="travel" class="travel-section section-pad-soft" aria-labelledby="travel-title">
+  <div class="travel-shell" data-reveal>
+    <p class="eyebrow">For our guests travelling</p>
+    <h2 id="travel-title" class="section-title compact">Travel &amp; Stay</h2>
+    <p>
+      For those journeying from afar, comfortable stays are available near both venues in Kanjoor and Kaippattoor. Please reach out and we will gladly help with directions or accommodation guidance.
+    </p>
+    <div class="travel-actions">
+      <a class="button-ghost" href={event.primaryMap} target="_blank" rel="noopener noreferrer">Church directions</a>
+      <a class="button-ghost" href={event.receptionMap} target="_blank" rel="noopener noreferrer">Reception directions</a>
+      <a class="button-primary" href={`tel:${event.phoneRaw}`}>Call family desk</a>
+    </div>
+  </div>
+</section>

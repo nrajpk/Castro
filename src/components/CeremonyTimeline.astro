@@ -1,0 +1,35 @@
+---
+import { ceremonies } from '../data/event.js';
+---
+<section id="ceremonies" class="timeline-section section-pad" aria-labelledby="timeline-title">
+  <div class="timeline-layout">
+    <aside class="timeline-sticky" data-reveal>
+      <p class="eyebrow">Saturday, October 10</p>
+      <h2 id="timeline-title" class="section-title compact">Order of the sacred day</h2>
+      <p>Kindly be present for both prayer and the celebratory meal that follows.</p>
+    </aside>
+
+    <div class="timeline-list" data-timeline-list>
+      {ceremonies.map((item, index) => (
+        <article class="timeline-item" data-timeline-item data-reveal data-reveal-delay={index === 1 ? '140' : '0'}>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-index">{item.idx}</div>
+          <div class="timeline-content">
+            <p class="timeline-time">{item.time}</p>
+            <h3>{item.title}</h3>
+            <p class="timeline-kicker">{item.kicker}</p>
+            <div class="venue-block">
+              <strong>{item.venue}</strong>
+              <span>{item.place}</span>
+            </div>
+            <p class="timeline-note">{item.note}</p>
+            <a class="inline-link" href={item.map} target="_blank" rel="noopener noreferrer">
+              View directions
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

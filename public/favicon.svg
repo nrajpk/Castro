@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="C and T monogram">
+  <rect width="64" height="64" rx="32" fill="#0f0b07"/>
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#d6b46a" stroke-width="1.2"/>
+  <text x="32" y="38" text-anchor="middle" font-size="18" font-family="Georgia, serif" fill="#f8f1e5" letter-spacing="2">C&amp;T</text>
+</svg>

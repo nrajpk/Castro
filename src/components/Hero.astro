@@ -1,0 +1,36 @@
+---
+import { event } from '../data/event.js';
+---
+<section id="top" class="hero-section hero-cover section-pad" aria-labelledby="hero-title" data-clear-nav>
+  <div class="hero-ornament" aria-hidden="true">
+    <span class="hero-cross">✦</span>
+  </div>
+
+  <div class="hero-shell hero-cover-shell">
+    <div class="hero-copy hero-cover-copy">
+      <p class="eyebrow hero-eyebrow">{event.title}</p>
+
+      <h1 id="hero-title" class="hero-title" aria-label={`${event.bride} and ${event.groom}`}>
+        <span class="hero-name hero-name-one">{event.bride}</span>
+        <em class="hero-and">and</em>
+        <span class="hero-name hero-name-two">{event.groom}</span>
+      </h1>
+
+      <p class="hero-subline">A promise made in prayer,<br class="desktop-break" /> with two families gathered in joy.</p>
+
+      <div class="hero-date-row" aria-label={event.dateLine}>
+        <div class="date-seal hero-date-seal" aria-hidden="true">
+          <span>10</span>
+          <small>Oct<br />2026</small>
+        </div>
+        <p>{event.dateLine}</p>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#invitation" aria-label="Begin scrolling to the invitation details">
+    <span>Begin</span>
+    <i aria-hidden="true"></i>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+  </a>
+</section>

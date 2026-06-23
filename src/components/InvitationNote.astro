@@ -1,0 +1,47 @@
+---
+import { event } from '../data/event.js';
+---
+<section id="invitation" class="note-section section-pad" aria-labelledby="note-title" data-clear-nav>
+  <div class="invitation-layout">
+    <div class="invitation-copy" data-reveal>
+      <p class="eyebrow">With joyful hearts</p>
+      <h2 id="note-title" class="section-title compact">You are warmly invited</h2>
+      <p class="large-note">
+        Sheela &amp; Saji Francis invite you to join in prayer and celebration as Cera and Tony begin their journey of promise, family and grace.
+      </p>
+      <p class="family-signoff">With love and prayers, Sheela &amp; Saji Francis</p>
+    </div>
+
+    <aside class="formal-invitation-card" data-reveal data-reveal-delay="120" aria-label="Formal invitation details">
+      <div class="date-seal" aria-hidden="true">
+        <span>10</span>
+        <small>Oct<br />2026</small>
+      </div>
+
+      <blockquote>
+        <p>{event.scripture}</p>
+        <cite>{event.scriptureRef}</cite>
+      </blockquote>
+
+      <div class="hero-meta-grid invitation-meta">
+        <div>
+          <span class="meta-label">Date</span>
+          <strong>{event.dateLine}</strong>
+        </div>
+        <div>
+          <span class="meta-label">Time</span>
+          <strong>{event.timeLine}</strong>
+        </div>
+        <div class="meta-wide">
+          <span class="meta-label">Venue</span>
+          <strong>{event.mainVenue}</strong>
+        </div>
+      </div>
+
+      <div class="hero-actions invitation-actions">
+        <a class="button-primary" href={event.invitationPdf} download>Download invitation</a>
+        <a class="button-ghost" href={event.primaryMap} target="_blank" rel="noopener noreferrer">View directions</a>
+      </div>
+    </aside>
+  </div>
+</section>

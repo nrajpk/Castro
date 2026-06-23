@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cera Tony Betrothal//Microsite//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:cera-tony-betrothal-20261010@invitation
+DTSTAMP:20260623T000000Z
+DTSTART:20261010T053000Z
+DTEND:20261010T080000Z
+SUMMARY:Cera & Tony Betrothal Ceremony
+LOCATION:St. Mary's Forane Church, Kanjoor, Kerala
+DESCRIPTION:Betrothal Ceremony at 11:00 AM followed by reception at O.L.D. Church Parish Hall, Kaippattoor from 12:30 PM onwards.
+END:VEVENT
+END:VCALENDAR

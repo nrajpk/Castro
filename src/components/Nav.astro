@@ -1,0 +1,14 @@
+---
+import { event } from '../data/event.js';
+---
+<header class="site-nav" data-site-nav>
+  <a class="nav-mark" href="#top" aria-label="Go to top">C <span>&amp;</span> T</a>
+  <nav class="nav-links" aria-label="Wedding page sections">
+    <a href="#story" data-nav-link>The Couple</a>
+    <a href="#ceremonies" data-nav-link>The Day</a>
+    <a href="#sharing" data-nav-link>Sharing</a>
+    <a href="#blessings" data-nav-link>Blessings</a>
+    <a href="#contact" data-nav-link>Contact</a>
+  </nav>
+  <a class="nav-download" href={event.invitationPdf} download>Download</a>
+</header>

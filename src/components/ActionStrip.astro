@@ -1,0 +1,51 @@
+---
+import { event } from '../data/event.js';
+const whatsappText = encodeURIComponent(`Betrothal Invitation: ${event.couple}, ${event.dateLine}, ${event.timeLine}, ${event.mainVenue}`);
+const actions = [
+  {
+    number: '01',
+    label: 'Save the invitation',
+    detail: 'Download the PDF',
+    href: event.invitationPdf,
+    download: true
+  },
+  {
+    number: '02',
+    label: 'Mark the day',
+    detail: 'Add to calendar',
+    href: event.calendarFile,
+    download: true
+  },
+  {
+    number: '03',
+    label: 'Find the church',
+    detail: 'Open directions',
+    href: event.primaryMap,
+    external: true
+  },
+  {
+    number: '04',
+    label: 'Share with family',
+    detail: 'Send on WhatsApp',
+    href: `https://wa.me/?text=${whatsappText}`,
+    external: true
+  }
+];
+---
+<section class="action-strip" aria-label="Invitation tools">
+  <div class="action-grid" data-reveal>
+    {actions.map((action) => (
+      <a
+        href={action.href}
+        download={action.download ? true : undefined}
+        target={action.external ? '_blank' : undefined}
+        rel={action.external ? 'noopener noreferrer' : undefined}
+      >
+        <span class="action-number">{action.number}</span>
+        <strong>{action.label}</strong>
+        <small>{action.detail}</small>
+        <span class="action-arrow" aria-hidden="true">→</span>
+      </a>
+    ))}
+  </div>
+</section>
