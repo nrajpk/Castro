@@ -1,23 +1,48 @@
 :root {
-  --paper: #fbf7ef;
-  --paper-soft: #f6efe3;
-  --paper-warm: #f1e7d8;
-  --card: #fffdf8;
-  --ink: #2b2118;
-  --text: #6b5a47;
-  --muted: #9a8771;
-  --gold: #c6a15b;
-  --gold-antique: #a77a35;
-  --gold-pale: #e7d3a1;
-  --deep: #2a1c13;
-  --deep-2: #1b120c;
-  --line: rgba(198, 161, 91, 0.26);
-  --line-soft: rgba(107, 90, 71, 0.12);
-  --line-faint: rgba(198, 161, 91, 0.12);
-  --shadow: 0 28px 70px rgba(42, 28, 19, 0.095);
-  --shadow-soft: 0 16px 44px rgba(42, 28, 19, 0.065);
+  /* Soft blush paper surfaces */
+  --paper: #fdf5f3;
+  --paper-soft: #fbecef;
+  --paper-warm: #f8e3e8;
+  --card: #fffdfc;
+
+  /* Warm rosewood ink + text */
+  --ink: #432731;
+  --text: #79545d;
+  --muted: #9c7680;
+
+  /* Gold accents */
+  --gold: #c9a25a;
+  --gold-antique: #a87a30;
+  --gold-pale: #ecd6a6;
+
+  /* Pink / rose accents */
+  --rose: #e69bb0;
+  --rose-deep: #cf6f8c;
+  --blush: #f7dbe2;
+
+  /* Deep plum footer */
+  --deep: #3a2230;
+  --deep-2: #28141f;
+
+  /* Hairlines */
+  --line: rgba(201, 162, 90, 0.28);
+  --line-soft: rgba(121, 84, 93, 0.14);
+  --line-faint: rgba(201, 162, 90, 0.12);
+  --line-rose: rgba(207, 111, 140, 0.22);
+
+  /* Soft-UI shadows */
+  --shadow: 0 30px 72px rgba(140, 74, 92, 0.13);
+  --shadow-soft: 0 18px 46px rgba(140, 74, 92, 0.10);
+  --shadow-pillow: 0 22px 52px rgba(140, 74, 92, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+
+  /* Soft-UI radii */
+  --radius-sm: 14px;
+  --radius: 22px;
+  --radius-lg: 30px;
+
   --display: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --script: 'Great Vibes', cursive;
   --nav-height: 92px;
 }
 
@@ -46,7 +71,7 @@ body::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.045;
+  opacity: 0.04;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
@@ -58,8 +83,9 @@ body::after {
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(198, 161, 91, 0.055), transparent 14%, transparent 86%, rgba(198, 161, 91, 0.055)),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 34%);
+    radial-gradient(120% 80% at 15% -8%, rgba(231, 155, 176, 0.16), transparent 46%),
+    radial-gradient(110% 70% at 92% 4%, rgba(231, 211, 161, 0.16), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.46), transparent 36%);
 }
 
 a { color: inherit; }
@@ -68,11 +94,11 @@ button, input, textarea { font: inherit; }
 button { cursor: pointer; }
 
 :focus-visible {
-  outline: 2px solid var(--gold-antique);
+  outline: 2px solid var(--rose-deep);
   outline-offset: 4px;
 }
 
-::selection { background: var(--gold); color: #fff; }
+::selection { background: var(--rose-deep); color: #fff; }
 
 section,
 footer,
@@ -175,22 +201,22 @@ blockquote p,
   left: 0;
   right: 0;
   z-index: 100;
-  height: 2px;
-  background: rgba(198, 161, 91, 0.12);
+  height: 3px;
+  background: rgba(207, 111, 140, 0.12);
 }
 
 .scroll-progress span {
   display: block;
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--gold-antique), var(--gold));
+  background: linear-gradient(90deg, var(--rose-deep), var(--gold));
 }
 
 .scroll-progress small {
   position: absolute;
   top: 0.72rem;
   right: clamp(1.25rem, 4vw, 3rem);
-  color: rgba(107, 90, 71, 0.64);
+  color: rgba(121, 84, 93, 0.64);
   font-size: 0.55rem;
   font-weight: 800;
   letter-spacing: 0.22em;
@@ -218,11 +244,11 @@ blockquote p,
 
 .site-nav.is-scrolled {
   height: 72px;
-  background: rgba(251, 247, 239, 0.9);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(253, 245, 243, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--line-soft);
-  box-shadow: 0 10px 34px rgba(42, 28, 19, 0.05);
+  box-shadow: 0 14px 40px rgba(140, 74, 92, 0.08);
 }
 
 .nav-mark,
@@ -239,7 +265,7 @@ blockquote p,
 }
 
 .nav-mark span {
-  color: var(--gold-antique);
+  color: var(--rose-deep);
   font-style: italic;
 }
 
@@ -271,7 +297,7 @@ blockquote p,
   height: 1px;
   transform: scaleX(0);
   transform-origin: left;
-  background: var(--gold-antique);
+  background: linear-gradient(90deg, var(--rose-deep), var(--gold-antique));
   transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -304,8 +330,9 @@ blockquote p,
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.82), rgba(251, 247, 239, 0.26)),
-    radial-gradient(circle at 50% 18%, rgba(231, 211, 161, 0.16), transparent 26rem);
+    radial-gradient(circle at 50% 16%, rgba(231, 155, 176, 0.2), transparent 30rem),
+    radial-gradient(circle at 78% 70%, rgba(231, 211, 161, 0.16), transparent 28rem),
+    linear-gradient(180deg, rgba(255, 253, 252, 0.84), rgba(251, 236, 239, 0.28));
 }
 
 .hero-cover { text-align: center; }
@@ -313,8 +340,8 @@ blockquote p,
 .hero-ornament {
   position: absolute;
   inset: 7rem clamp(1rem, 4vw, 4rem) 4.2rem;
-  border: 1px solid rgba(198, 161, 91, 0.3);
-  border-radius: 999px 999px 10px 10px;
+  border: 1px solid rgba(207, 111, 140, 0.26);
+  border-radius: 999px 999px 30px 30px;
   opacity: 0;
   pointer-events: none;
   animation: arch-arrive 1200ms 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -327,7 +354,7 @@ blockquote p,
   top: 2.7rem;
   bottom: 2.7rem;
   width: 1px;
-  background: linear-gradient(transparent, rgba(198, 161, 91, 0.22), transparent);
+  background: linear-gradient(transparent, rgba(201, 162, 90, 0.24), transparent);
 }
 
 .hero-ornament::before { left: 8%; }
@@ -337,7 +364,7 @@ blockquote p,
   position: absolute;
   top: 1.1rem;
   left: 50%;
-  color: var(--gold-antique);
+  color: var(--rose-deep);
   font-size: 1.05rem;
   letter-spacing: 0;
   transform: translateX(-50%) scale(0.88);
@@ -391,7 +418,7 @@ blockquote p,
 
 .hero-title em {
   margin: 0.15em 0 0.08em 0;
-  color: var(--gold-antique);
+  color: var(--rose-deep);
   font-size: 0.33em;
   font-style: italic;
   letter-spacing: -0.02em;
@@ -438,12 +465,16 @@ blockquote p,
   align-items: center;
   gap: 0.35rem;
   margin-bottom: 1.35rem;
-  border: 1px solid rgba(198, 161, 91, 0.38);
+  border: 1px solid rgba(201, 162, 90, 0.4);
   border-radius: 999px;
   padding: 0.72rem;
   color: var(--gold-antique);
-  background: rgba(255, 253, 248, 0.78);
-  box-shadow: inset 0 0 0 1px rgba(255, 253, 248, 0.7), 0 8px 24px rgba(198, 161, 91, 0.12);
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.9), transparent 60%),
+    linear-gradient(150deg, rgba(255, 253, 252, 0.92), rgba(247, 219, 226, 0.7));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 12px 30px rgba(207, 111, 140, 0.14);
   animation: seal-arrive 720ms 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -478,7 +509,7 @@ blockquote p,
 
 .script-line {
   margin: 0 0 1.7rem;
-  color: var(--gold-antique);
+  color: var(--rose-deep);
   font-style: italic;
 }
 
@@ -515,8 +546,8 @@ blockquote p,
   align-items: center;
   justify-content: center;
   min-height: 3rem;
-  padding: 0.94rem 1.35rem;
-  border-radius: 2px;
+  padding: 0.94rem 1.6rem;
+  border-radius: var(--radius-sm);
   font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -531,31 +562,37 @@ blockquote p,
 }
 
 .button-primary {
-  border: 1px solid var(--gold-antique);
-  background: var(--gold-antique);
+  border: 1px solid rgba(154, 111, 36, 0.7);
+  background: linear-gradient(140deg, #b9882f, #9a6f24);
   color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 12px 28px rgba(168, 122, 48, 0.26);
 }
 
 .button-primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  background: var(--gold);
+  background: linear-gradient(140deg, #c79a3f, #a87a30);
   border-color: var(--gold);
-  box-shadow: 0 16px 34px rgba(198, 161, 91, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 18px 38px rgba(168, 122, 48, 0.3);
 }
 
 .button-primary:disabled { opacity: 0.48; cursor: not-allowed; }
 
 .button-ghost {
-  border: 1px solid var(--line-soft);
-  background: rgba(255, 253, 248, 0.54);
-  color: var(--gold-antique);
+  border: 1px solid var(--line-rose);
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--rose-deep);
+  box-shadow: var(--shadow-soft);
 }
 
 .button-ghost:hover {
   transform: translateY(-2px);
-  border-color: var(--gold-antique);
+  border-color: var(--rose-deep);
   color: var(--ink);
-  background: rgba(198, 161, 91, 0.08);
+  background: rgba(247, 219, 226, 0.5);
 }
 
 .scroll-cue {
@@ -579,7 +616,7 @@ blockquote p,
   width: 1px;
   height: 24px;
   display: block;
-  background: linear-gradient(transparent, var(--gold), transparent);
+  background: linear-gradient(transparent, var(--rose-deep), transparent);
   animation: cue-line 1900ms ease-in-out infinite;
 }
 
@@ -587,7 +624,7 @@ blockquote p,
   width: 22px;
   height: 22px;
   fill: none;
-  stroke: var(--gold-antique);
+  stroke: var(--rose-deep);
   stroke-width: 1.6;
   animation: cue-bob 1900ms ease-in-out infinite;
 }
@@ -646,17 +683,21 @@ blockquote p,
 
 .formal-invitation-card {
   position: relative;
-  padding: clamp(1.75rem, 4vw, 3rem);
-  background: rgba(255, 253, 248, 0.92);
-  border: 1px solid rgba(198, 161, 91, 0.24);
-  box-shadow: var(--shadow-soft);
+  padding: clamp(1.9rem, 4vw, 3.2rem);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(140% 90% at 12% 0%, rgba(255, 255, 255, 0.9), transparent 50%),
+    linear-gradient(160deg, var(--card), rgba(251, 236, 239, 0.85));
+  border: 1px solid rgba(201, 162, 90, 0.24);
+  box-shadow: var(--shadow-pillow);
 }
 
 .formal-invitation-card::before {
   content: '';
   position: absolute;
-  inset: 0.72rem;
-  border: 1px solid rgba(198, 161, 91, 0.1);
+  inset: 0.85rem;
+  border: 1px solid rgba(207, 111, 140, 0.16);
+  border-radius: calc(var(--radius-lg) - 12px);
   pointer-events: none;
 }
 
@@ -686,7 +727,7 @@ blockquote {
 
 blockquote p {
   margin: 0;
-  color: var(--gold-antique);
+  color: var(--rose-deep);
   font-size: clamp(1.28rem, 2.7vw, 1.95rem);
   font-style: italic;
 }
@@ -715,7 +756,7 @@ blockquote cite {
   position: relative;
   z-index: 2;
   border-block: 1px solid var(--line-soft);
-  background: rgba(255, 253, 248, 0.74);
+  background: linear-gradient(180deg, rgba(255, 253, 252, 0.82), rgba(251, 236, 239, 0.62));
 }
 
 .countdown-inner {
@@ -746,7 +787,12 @@ blockquote cite {
   gap: clamp(0.9rem, 3vw, 3rem);
 }
 
-.countdown-cell { text-align: center; }
+.countdown-cell {
+  text-align: center;
+  padding: 0.55rem 0.4rem;
+  border-radius: var(--radius-sm);
+  transition: background 240ms ease;
+}
 
 .countdown-cell strong {
   display: block;
@@ -776,7 +822,11 @@ blockquote cite {
 .action-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: rgba(255, 253, 248, 0.66);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 252, 0.72);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
 }
 
 .action-grid a {
@@ -786,12 +836,11 @@ blockquote cite {
   flex-direction: column;
   justify-content: center;
   gap: 0.55rem;
-  padding: 1.45rem;
+  padding: 1.6rem;
   border-right: 1px solid var(--line-soft);
-  border-top: 1px solid transparent;
   text-decoration: none;
   overflow: hidden;
-  transition: background 240ms ease, transform 240ms ease, border-color 240ms ease;
+  transition: background 240ms ease, transform 240ms ease;
 }
 
 .action-grid a::before {
@@ -799,7 +848,7 @@ blockquote cite {
   position: absolute;
   inset: 0 auto 0 0;
   width: 3px;
-  background: var(--gold);
+  background: linear-gradient(var(--rose-deep), var(--gold));
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -808,14 +857,13 @@ blockquote cite {
 .action-grid a:last-child { border-right: 0; }
 
 .action-grid a:hover {
-  background: rgba(198, 161, 91, 0.06);
-  border-top-color: rgba(198, 161, 91, 0.2);
+  background: rgba(247, 219, 226, 0.42);
 }
 
 .action-grid a:hover::before { transform: scaleY(1); }
 
 .action-number {
-  color: var(--gold-antique);
+  color: var(--rose-deep);
   font-family: var(--display);
   font-size: 1.35rem;
   transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -873,10 +921,13 @@ blockquote cite {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.6rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--line-soft);
-  background: rgba(255, 253, 248, 0.76);
-  box-shadow: var(--shadow-soft);
+  background:
+    radial-gradient(120% 80% at 80% 0%, rgba(247, 219, 226, 0.5), transparent 55%),
+    rgba(255, 253, 252, 0.82);
+  box-shadow: var(--shadow-pillow);
   overflow: hidden;
 }
 
@@ -885,7 +936,7 @@ blockquote cite {
   position: absolute;
   top: 0.2rem;
   right: 1.1rem;
-  color: rgba(198, 161, 91, 0.1);
+  color: rgba(207, 111, 140, 0.1);
   font-family: var(--display);
   font-size: clamp(8rem, 18vw, 15rem);
   line-height: 0.82;
@@ -899,13 +950,13 @@ blockquote cite {
   width: 128px;
   height: 128px;
   border-radius: 50%;
-  border: 1px solid rgba(198, 161, 91, 0.24);
+  border: 1px solid rgba(207, 111, 140, 0.24);
   opacity: 0.54;
   transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), border-color 500ms ease;
 }
 
 .person-panel.is-visible::after { animation: soft-ring 900ms 240ms cubic-bezier(0.16, 1, 0.3, 1) both; }
-.person-panel:hover::after { transform: scale(1.12); border-color: var(--gold-antique); }
+.person-panel:hover::after { transform: scale(1.12); border-color: var(--rose-deep); }
 
 @keyframes soft-ring {
   from { transform: scale(0.86); opacity: 0; }
@@ -914,7 +965,7 @@ blockquote cite {
 
 .script-kicker {
   margin: 0 0 0.5rem;
-  color: var(--gold-antique);
+  color: var(--rose-deep);
   font-family: var(--display);
   font-size: clamp(1.35rem, 3vw, 2rem);
   font-style: italic;
@@ -980,7 +1031,7 @@ blockquote cite {
   top: 0.5rem;
   bottom: 0.5rem;
   width: 1px;
-  background: linear-gradient(var(--gold), rgba(198, 161, 91, 0.08));
+  background: linear-gradient(var(--rose-deep), rgba(201, 162, 90, 0.1));
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -990,17 +1041,19 @@ blockquote cite {
 
 .lineage-card {
   position: relative;
-  padding: clamp(1.3rem, 3vw, 2rem);
+  padding: clamp(1.4rem, 3vw, 2.1rem);
+  border-radius: var(--radius);
   border: 1px solid var(--line-soft);
-  background: rgba(255, 253, 248, 0.82);
-  box-shadow: 0 12px 34px rgba(42, 28, 19, 0.045);
+  background: rgba(255, 253, 252, 0.86);
+  box-shadow: var(--shadow-soft);
 }
 
 .lineage-card::before {
   content: '';
   position: absolute;
-  inset: 0.55rem;
-  border: 1px solid rgba(198, 161, 91, 0.1);
+  inset: 0.6rem;
+  border: 1px solid rgba(201, 162, 90, 0.12);
+  border-radius: calc(var(--radius) - 9px);
   pointer-events: none;
 }
 
@@ -1080,7 +1133,7 @@ blockquote cite {
   top: 0.55rem;
   bottom: 0.55rem;
   width: 1px;
-  background: rgba(198, 161, 91, 0.18);
+  background: linear-gradient(rgba(207, 111, 140, 0.28), rgba(201, 162, 90, 0.18));
 }
 
 .timeline-item {
@@ -1099,19 +1152,19 @@ blockquote cite {
   height: 13px;
   border-radius: 999px;
   background: var(--paper);
-  border: 1px solid var(--gold-antique);
-  box-shadow: 0 0 0 6px rgba(198, 161, 91, 0.09);
+  border: 1px solid var(--rose-deep);
+  box-shadow: 0 0 0 6px rgba(207, 111, 140, 0.1);
   transition: background 360ms ease, box-shadow 360ms ease, transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .timeline-item.is-active .timeline-dot {
-  background: var(--gold-antique);
+  background: var(--rose-deep);
   transform: scale(1.08);
-  box-shadow: 0 0 0 10px rgba(198, 161, 91, 0.14);
+  box-shadow: 0 0 0 10px rgba(207, 111, 140, 0.16);
 }
 
 .timeline-index {
-  color: rgba(167, 122, 53, 0.22);
+  color: rgba(207, 111, 140, 0.22);
   font-family: var(--display);
   font-size: clamp(3.2rem, 8vw, 6.8rem);
   font-weight: 300;
@@ -1121,7 +1174,7 @@ blockquote cite {
 
 .timeline-item.is-active .timeline-index,
 .timeline-item:hover .timeline-index {
-  color: rgba(167, 122, 53, 0.56);
+  color: rgba(207, 111, 140, 0.52);
   transform: translateY(-2px);
 }
 
@@ -1188,7 +1241,7 @@ blockquote cite {
   letter-spacing: 0.16em;
   text-decoration: none;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.38);
+  border-bottom: 1px solid rgba(201, 162, 90, 0.4);
   padding-bottom: 0.32rem;
 }
 
@@ -1215,21 +1268,23 @@ blockquote cite {
   position: relative;
   min-height: clamp(320px, 52vw, 620px);
   margin: 0;
-  border: 1px solid rgba(198, 161, 91, 0.24);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(201, 162, 90, 0.26);
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.12), rgba(42, 28, 19, 0.08)),
+    linear-gradient(180deg, rgba(255, 253, 252, 0.1), rgba(58, 34, 48, 0.06)),
     var(--couple-photo) center / cover,
-    linear-gradient(135deg, rgba(255, 253, 248, 0.92), rgba(241, 231, 216, 0.9));
+    linear-gradient(135deg, rgba(255, 253, 252, 0.92), rgba(247, 219, 226, 0.9));
   box-shadow: var(--shadow);
-  filter: saturate(0.94) sepia(0.06);
+  filter: saturate(0.98);
   overflow: hidden;
 }
 
 .photo-frame::before {
   content: '';
   position: absolute;
-  inset: 0.8rem;
-  border: 1px solid rgba(255, 253, 248, 0.62);
+  inset: 0.85rem;
+  border: 1px solid rgba(255, 253, 252, 0.66);
+  border-radius: calc(var(--radius-lg) - 12px);
   pointer-events: none;
 }
 
@@ -1237,7 +1292,7 @@ blockquote cite {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 54%, rgba(42, 28, 19, 0.16));
+  background: linear-gradient(180deg, transparent 54%, rgba(58, 34, 48, 0.18));
   pointer-events: none;
 }
 
@@ -1259,7 +1314,7 @@ blockquote cite {
   border: 0;
 }
 
-.sharing-section { background: rgba(255, 253, 248, 0.42); }
+.sharing-section { background: rgba(255, 253, 252, 0.46); }
 
 .sharing-list {
   display: grid;
@@ -1279,7 +1334,7 @@ blockquote cite {
   content: '✦';
   display: block;
   margin: 0.45rem auto 0;
-  color: var(--gold);
+  color: var(--rose-deep);
   font-size: 0.68rem;
 }
 
@@ -1326,25 +1381,32 @@ blockquote cite {
 .blessing-form input,
 .blessing-form textarea {
   width: 100%;
-  border: 0;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.36);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
   color: var(--ink);
-  background: transparent;
-  padding: 0.8rem 0;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.85rem 0.95rem;
   outline: 0;
   resize: vertical;
+  transition: border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
 }
 
 .blessing-form input::placeholder,
-.blessing-form textarea::placeholder { color: rgba(107, 90, 71, 0.42); }
+.blessing-form textarea::placeholder { color: rgba(121, 84, 93, 0.46); }
 
 .blessing-form input:focus,
-.blessing-form textarea:focus { border-bottom-color: var(--gold-antique); }
+.blessing-form textarea:focus {
+  border-color: var(--rose-deep);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(207, 111, 140, 0.12);
+}
 
 .blessing-board {
+  border-radius: var(--radius-lg);
   border: 1px solid var(--line-soft);
-  background: rgba(255, 253, 248, 0.82);
-  box-shadow: var(--shadow-soft);
+  background: rgba(255, 253, 252, 0.86);
+  box-shadow: var(--shadow-pillow);
+  overflow: hidden;
 }
 
 .board-head {
@@ -1376,7 +1438,7 @@ blockquote cite {
   overflow: auto;
   padding: 0.4rem 1.4rem 1.4rem;
   scrollbar-width: thin;
-  scrollbar-color: var(--gold) transparent;
+  scrollbar-color: var(--rose) transparent;
 }
 
 .blessing-card {
@@ -1393,7 +1455,7 @@ blockquote cite {
   display: block;
   height: 1px;
   margin-bottom: 0.8rem;
-  background: var(--gold);
+  background: var(--rose-deep);
   animation: gold-flash 900ms ease both;
 }
 
@@ -1427,7 +1489,7 @@ blockquote cite {
 }
 
 .blessing-card strong {
-  color: var(--gold-antique);
+  color: var(--rose-deep);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1450,9 +1512,11 @@ blockquote cite {
   content: '';
   position: absolute;
   inset: 0 0 auto;
-  height: 42%;
+  height: 46%;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 0%, rgba(198, 161, 91, 0.16), transparent 24rem);
+  background:
+    radial-gradient(circle at 30% 0%, rgba(231, 155, 176, 0.18), transparent 22rem),
+    radial-gradient(circle at 72% 6%, rgba(201, 162, 90, 0.16), transparent 22rem);
 }
 
 .contact-footer .eyebrow,
@@ -1461,20 +1525,22 @@ blockquote cite {
 .contact-footer .button-ghost {
   color: var(--gold-pale);
   border-color: rgba(231, 211, 161, 0.28);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
 }
 
 .contact-footer .button-ghost:hover {
   color: #fff;
   border-color: var(--gold-pale);
-  background: rgba(231, 211, 161, 0.08);
+  background: rgba(231, 211, 161, 0.1);
 }
 
 .footer-shell { width: min(100%, 720px); }
 
 .footer-seal {
   margin: 0 auto 1.4rem;
-  background: rgba(255, 253, 248, 0.07);
+  background: rgba(255, 253, 252, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 12px 30px rgba(0, 0, 0, 0.25);
   opacity: 0;
 }
 
@@ -1499,7 +1565,7 @@ blockquote cite {
 .footer-note {
   margin: 1.2rem auto 0;
   max-width: 560px;
-  color: rgba(248, 241, 229, 0.78);
+  color: rgba(250, 238, 242, 0.8);
   font-size: 1.35rem;
 }
 
@@ -1518,7 +1584,7 @@ blockquote cite {
 .footer-shell small {
   display: block;
   margin-top: 2.6rem;
-  color: rgba(248, 241, 229, 0.42);
+  color: rgba(250, 238, 242, 0.46);
   font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.22em;
@@ -1534,13 +1600,15 @@ blockquote cite {
   height: 60px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(198, 161, 91, 0.3);
+  border: 1px solid rgba(207, 111, 140, 0.3);
   border-radius: 999px;
-  background: rgba(255, 253, 248, 0.9);
-  color: var(--gold-antique);
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.95), transparent 62%),
+    rgba(255, 253, 252, 0.9);
+  color: var(--rose-deep);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 18px 44px rgba(42, 28, 19, 0.11);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 18px 44px rgba(140, 74, 92, 0.16);
 }
 
 .music-control > span:last-child {
@@ -1553,7 +1621,7 @@ blockquote cite {
 .music-ring {
   position: absolute;
   inset: 8px;
-  border: 1px solid rgba(198, 161, 91, 0.34);
+  border: 1px solid rgba(207, 111, 140, 0.36);
   border-radius: inherit;
 }
 
@@ -1571,8 +1639,9 @@ blockquote cite {
   z-index: 95;
   width: min(92vw, 360px);
   padding: 0.9rem 1rem;
-  border: 1px solid rgba(198, 161, 91, 0.3);
-  background: rgba(255, 253, 248, 0.96);
+  border-radius: var(--radius);
+  border: 1px solid rgba(207, 111, 140, 0.28);
+  background: rgba(255, 253, 252, 0.97);
   color: var(--ink);
   text-align: center;
   font-size: 0.78rem;
@@ -1655,7 +1724,7 @@ blockquote cite {
 
   .hero-ornament {
     inset: 5.8rem 0.7rem 4.4rem;
-    border-radius: 180px 180px 4px 4px;
+    border-radius: 180px 180px 24px 24px;
   }
 
   .hero-ornament::before,
@@ -1669,7 +1738,7 @@ blockquote cite {
   .hero-date-row { flex-direction: column; gap: 0.75rem; }
   .hero-date-row p { font-size: 0.56rem; letter-spacing: 0.13em; }
   .desktop-break { display: none; }
-  .formal-invitation-card { padding: 1.45rem; }
+  .formal-invitation-card { padding: 1.55rem; }
 
   .hero-actions,
   .footer-actions { display: grid; }
@@ -1752,9 +1821,7 @@ blockquote cite {
   .timeline-item { transform: none !important; }
 }
 
-/* ---- Final reconciliation pass: retain App.jsx warmth inside Astro architecture ---- */
-:root { --script: 'Great Vibes', cursive; }
-
+/* ---- Refinement pass: soft script accents and travel section ---- */
 .hero-title em,
 .script-kicker,
 .footer-title + .footer-note::before {
@@ -1777,7 +1844,8 @@ blockquote cite {
 .travel-section {
   border-top: 1px solid var(--line-soft);
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.52), rgba(246, 239, 227, 0.72));
+    radial-gradient(120% 80% at 50% 0%, rgba(247, 219, 226, 0.5), transparent 48%),
+    linear-gradient(180deg, rgba(255, 253, 252, 0.56), rgba(248, 227, 232, 0.72));
 }
 
 .travel-shell {
